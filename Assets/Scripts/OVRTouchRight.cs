@@ -22,5 +22,6 @@ public class OVRTouchRight : MonoBehaviour {
             transform.position = Vector3.MoveTowards(
                 transform.position, ovrTouchRightPivot.position, followSpeed * Time.deltaTime);
         }
+        transform.localRotation = ovrTouchRightPivot.localRotation;
     }
 }

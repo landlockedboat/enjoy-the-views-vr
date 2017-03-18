@@ -6,6 +6,7 @@ public class OVRTouchInput : MonoBehaviour {
     InputHandler inputHandlerInstance;
 
     bool isFirePressed = false;
+    bool isReloadPressed = false;
 
     void Start() {
         inputHandlerInstance = InputHandler.Instance;
@@ -23,5 +24,17 @@ public class OVRTouchInput : MonoBehaviour {
         {
             isFirePressed = false;
         }
+
+        if (!isReloadPressed && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) > 0)
+        {
+            isReloadPressed = true;
+            inputHandlerInstance.OnReloadPressed();
+        }
+
+        if (OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) == 0)
+        {
+            isReloadPressed = false;
+        }
+
     }
 }

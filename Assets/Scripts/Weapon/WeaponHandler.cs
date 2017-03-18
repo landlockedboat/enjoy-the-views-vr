@@ -23,10 +23,13 @@ public class WeaponHandler : Singleton<WeaponHandler>
         shootingWeapons[index].gameObject.SetActive(true);
     }
 
-    void Start()
+    void Awake()
     {
         shootingWeapons = GetComponentsInChildren<ShootingWeapon>();
+    }
 
+    void Start()
+    {
         inputHandlerInstance = InputHandler.Instance;
 
         inputHandlerInstance.RegisterOnNextWeaponCallback(NextWeapon);
@@ -73,11 +76,19 @@ public class WeaponHandler : Singleton<WeaponHandler>
 
     public int GetCurrentAmmo()
     {
+        if (shootingWeapons.Length <= 0)
+        {
+            return 0;
+        }
         return shootingWeapons[currentWeapon].CurrentAmmo;
     }
 
     public int GetMaxAmmo()
     {
+        if (shootingWeapons.Length <= 0)
+        {
+            return 0;
+        }
         return shootingWeapons[currentWeapon].MaxAmmo;
     }
 

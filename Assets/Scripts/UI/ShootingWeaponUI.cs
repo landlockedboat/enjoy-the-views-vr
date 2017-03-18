@@ -23,7 +23,7 @@ public class ShootingWeaponUI : MonoBehaviour {
 
     void UpdateAmmoText()
     {
-        string newText = "Ammo: ";
+        string newText = "";
         newText += weaponHandlerInstance.GetCurrentAmmo() + "/";
         newText += weaponHandlerInstance.GetMaxAmmo();
         currentAmmoText.text = newText;

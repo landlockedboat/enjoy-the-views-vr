@@ -70,7 +70,7 @@ public class ShootingWeapon : MonoBehaviour {
             GameObject magazine =
                 Instantiate(magazinePrefab, magazineBasePivot.transform.position,
                     magazineBasePivot.transform.rotation);
-
+            magazine.transform.localScale = transform.localScale;
         }
         currentAmmo = maxAmmo;
         ShowMagazine();

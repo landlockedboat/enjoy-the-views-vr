@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4834120899182520}
   - component: {fileID: 54974492273746130}
   - component: {fileID: 65785586667774190}
+  - component: {fileID: 114345445087793940}
   m_Layer: 0
   m_Name: ShootingWeaponMagazine
   m_TagString: Untagged
@@ -137,3 +138,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 1, z: 0.1}
   m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!114 &114345445087793940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1702434930371810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17957cc51bbda964c947481b303790c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeTillSelfDestruction: 1

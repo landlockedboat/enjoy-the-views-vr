@@ -21,6 +21,7 @@ public class ShootingWeaponBullet : MonoBehaviour {
     {
         if(collision == null)
         {
+            Debug.LogError("OnCollisionEnter: null collision");
             return;
         }
         GameObject collisionObject = collision.gameObject;
@@ -28,6 +29,8 @@ public class ShootingWeaponBullet : MonoBehaviour {
         if(collisionObject.tag == "Enemy")
         {
             collisionObject.SendMessage("ApplyDamage", damage, 
+                SendMessageOptions.DontRequireReceiver);
+            collisionObject.SendMessage("ApplyKnockback", myRigidbody.velocity.normalized,
                 SendMessageOptions.DontRequireReceiver);
             Destroy(gameObject);
         }

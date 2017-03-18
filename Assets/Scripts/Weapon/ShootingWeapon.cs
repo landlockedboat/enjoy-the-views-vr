@@ -55,6 +55,13 @@ public class ShootingWeapon : MonoBehaviour {
         currentAmmo = maxAmmo;
     }
 
+    void InstantiatePrefab(GameObject prefab, Vector3 position, Quaternion rotation)
+    {
+        GameObject instancedPrefab =
+            Instantiate(prefab, position, rotation);
+        instancedPrefab.transform.localScale = transform.localScale;
+    }
+
     void Start()
     {
         inputHandlerInstance = InputHandler.Instance;
@@ -66,11 +73,8 @@ public class ShootingWeapon : MonoBehaviour {
     {
         if(currentAmmo > 0)
         {
-            Debug.Log("Recharging while the mag is still full");
-            GameObject magazine =
-                Instantiate(magazinePrefab, magazineBasePivot.transform.position,
+            InstantiatePrefab(magazinePrefab, magazineBasePivot.transform.position,
                     magazineBasePivot.transform.rotation);
-            magazine.transform.localScale = transform.localScale;
         }
         currentAmmo = maxAmmo;
         ShowMagazine();
@@ -87,20 +91,17 @@ public class ShootingWeapon : MonoBehaviour {
                 barrelPivot.transform.position + transform.right * -1 * rayLength);
 
         --currentAmmo;
-        if(currentAmmo <= 0)
+        if (currentAmmo <= 0)
         {
             HideMagazine();
-            GameObject magazine =
-                Instantiate(magazinePrefab, magazineBasePivot.transform.position,
+            InstantiatePrefab(magazinePrefab, magazineBasePivot.transform.position,
                     magazineBasePivot.transform.rotation);
         }
-        GameObject shell = 
-            Instantiate(shellPrefab, ejectionPortPivot.transform.position,
-                ejectionPortPivot.transform.rotation);
-        GameObject bullet =
-            Instantiate(bulletPrefab, barrelPivot.transform.position, Quaternion.identity);
+        InstantiatePrefab(shellPrefab, ejectionPortPivot.transform.position,
+                    ejectionPortPivot.transform.rotation);
+        InstantiatePrefab(bulletPrefab, barrelPivot.transform.position,
+            barrelPivot.transform.rotation);
     }
-
     void ShowMagazine()
     {
         if (magazineGeom != null)

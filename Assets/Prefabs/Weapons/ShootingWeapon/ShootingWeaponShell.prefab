@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 136735873397114094}
   - component: {fileID: 54749356655688642}
   - component: {fileID: 114468354952818436}
+  - component: {fileID: 114810332441158440}
   m_Layer: 0
   m_Name: ShootingWeaponShell
   m_TagString: Untagged
@@ -139,6 +140,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialForce: 10
   maxTorque: 5
+--- !u!114 &114810332441158440
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1407409982939276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17957cc51bbda964c947481b303790c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeTillSelfDestruction: 1
 --- !u!136 &136735873397114094
 CapsuleCollider:
   m_ObjectHideFlags: 1

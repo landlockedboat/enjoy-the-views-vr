@@ -9,10 +9,19 @@ using UnityEngine;
 public class InputHandler : Singleton<InputHandler> {
 
     private Action onFireCallback;
+    private Action postFireCallback;
 
+    private Action onReloadCallback;
+    private Action postReloadCallback;
+    // onFireCallback
     public void RegisterOnFireCallback(Action onFireCallback)
     {
         this.onFireCallback += onFireCallback;
+    }
+
+    public void RegisterPostFireCallback(Action postFireCallback)
+    {
+        this.postFireCallback += postFireCallback;
     }
 
     public void UnregisterOnFireCallback(Action onFireCallback)
@@ -21,7 +30,30 @@ public class InputHandler : Singleton<InputHandler> {
     }
 
     public void OnFirePressed() {
-        // All callbacks associated with this action are executed
         onFireCallback();
+        postFireCallback();
     }
+
+    // onReloadCallback
+    public void RegisterOnReloadCallback(Action onReloadCallback)
+    {
+        this.onReloadCallback += onReloadCallback;
+    }
+
+    public void RegisterPostReloadCallback(Action postReloadCallback)
+    {
+        this.postReloadCallback += postReloadCallback;
+    }
+
+    public void UnregisterOnReloadCallback(Action onReloadCallback)
+    {
+        this.onReloadCallback -= onReloadCallback;
+    }
+
+    public void OnReloadPressed()
+    {
+        onReloadCallback();
+        postReloadCallback();
+    }
+
 }

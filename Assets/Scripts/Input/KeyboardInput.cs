@@ -6,6 +6,8 @@ public class KeyboardInput : MonoBehaviour
 {
     [SerializeField]
     string fireKey = "space";
+    [SerializeField]
+    string reloadKey = "r";
 
     InputHandler inputHandlerInstance;
 
@@ -18,8 +20,12 @@ public class KeyboardInput : MonoBehaviour
     {
         if (Input.GetKeyDown(fireKey))
         {
-            // This trigger firing
+            // This triggers firing
             inputHandlerInstance.OnFirePressed();
+        }
+        if (Input.GetKeyDown(reloadKey))
+        {
+            inputHandlerInstance.OnReloadPressed();
         }
     }
 }

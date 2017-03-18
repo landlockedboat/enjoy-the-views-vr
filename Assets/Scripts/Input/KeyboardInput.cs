@@ -8,6 +8,10 @@ public class KeyboardInput : MonoBehaviour
     string fireKey = "space";
     [SerializeField]
     string reloadKey = "r";
+    [SerializeField]
+    string nextWeaponKey = "q";
+    [SerializeField]
+    string previousWeaponKey = "e";
 
     InputHandler inputHandlerInstance;
 
@@ -20,12 +24,19 @@ public class KeyboardInput : MonoBehaviour
     {
         if (Input.GetKeyDown(fireKey))
         {
-            // This triggers firing
             inputHandlerInstance.OnFirePressed();
         }
         if (Input.GetKeyDown(reloadKey))
         {
             inputHandlerInstance.OnReloadPressed();
+        }
+        if (Input.GetKeyDown(nextWeaponKey))
+        {
+            inputHandlerInstance.OnNextWeaponPressed();
+        }
+        if (Input.GetKeyDown(previousWeaponKey))
+        {
+            inputHandlerInstance.OnPreviousWeaponPressed();
         }
     }
 }

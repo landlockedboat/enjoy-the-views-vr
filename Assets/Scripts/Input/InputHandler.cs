@@ -8,11 +8,38 @@ using UnityEngine;
 // specific Input handling behaviour if you want to see any results
 public class InputHandler : Singleton<InputHandler> {
 
-    private Action onFireCallback;
-    private Action postFireCallback;
+    Action onFireCallback;
+    Action postFireCallback;
 
-    private Action onReloadCallback;
-    private Action postReloadCallback;
+    Action onReloadCallback;
+    Action postReloadCallback;
+
+    Action onNextWeaponCallback;
+
+    Action onPreviousWeaponCallback;
+
+    //onNextWeaponCallback
+    public void RegisterOnNextWeaponCallback(Action onNextWeaponCallback)
+    {
+        this.onNextWeaponCallback += onNextWeaponCallback;
+    }
+
+    public void OnNextWeaponPressed()
+    {
+        TriggerCallback(onNextWeaponCallback);
+    }
+
+    // onPreviousWeaponCallback
+    public void RegisterOnPreviousWeaponCallback(Action onPreviousWeaponCallback)
+    {
+        this.onPreviousWeaponCallback += onPreviousWeaponCallback;
+    }
+
+    public void OnPreviousWeaponPressed()
+    {
+        TriggerCallback(onPreviousWeaponCallback);
+    }
+
     // onFireCallback
     public void RegisterOnFireCallback(Action onFireCallback)
     {
@@ -30,8 +57,8 @@ public class InputHandler : Singleton<InputHandler> {
     }
 
     public void OnFirePressed() {
-        onFireCallback();
-        postFireCallback();
+        TriggerCallback(onFireCallback);
+        TriggerCallback(postFireCallback);
     }
 
     // onReloadCallback
@@ -52,8 +79,15 @@ public class InputHandler : Singleton<InputHandler> {
 
     public void OnReloadPressed()
     {
-        onReloadCallback();
-        postReloadCallback();
+        TriggerCallback(onReloadCallback);
+        TriggerCallback(postReloadCallback);
     }
 
+    void TriggerCallback(Action callback)
+    {
+        if(callback != null)
+        {
+            callback();
+        }
+    }
 }

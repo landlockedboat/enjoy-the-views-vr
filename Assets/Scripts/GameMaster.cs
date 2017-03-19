@@ -11,6 +11,11 @@ public class GameMaster : Singleton<GameMaster> {
         this.onGameOverCallback += onGameOverCallback;
     }
 
+    public void UnRegisterOnGameOverCallback(Action onGameOverCallback)
+    {
+        this.onGameOverCallback -= onGameOverCallback;
+    }
+
     public void GameOver()
     {
         TriggerCallback(onGameOverCallback);

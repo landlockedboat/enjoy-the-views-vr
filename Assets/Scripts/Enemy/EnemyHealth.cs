@@ -18,6 +18,7 @@ public class EnemyHealth : MonoBehaviour {
             EnemiesKilledUI.Instance.EnemyKilled();
             GameObject corpse =
                 Instantiate(corpsePrefab, transform.position, transform.rotation);
+            gameObject.SendMessage("Die");
             Destroy(gameObject);
         }
     }

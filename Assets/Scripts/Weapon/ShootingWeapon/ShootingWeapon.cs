@@ -31,6 +31,7 @@ public class ShootingWeapon : MonoBehaviour {
 
     int currentAmmo;
     InputHandler inputHandlerInstance;
+    bool gameOver = false;
 
     public int CurrentAmmo
     {
@@ -67,10 +68,19 @@ public class ShootingWeapon : MonoBehaviour {
         inputHandlerInstance = InputHandler.Instance;
         inputHandlerInstance.RegisterOnFireCallback(Fire);
         inputHandlerInstance.RegisterOnReloadCallback(Reload);
+        GameMaster.Instance.RegisterOnGameOverCallback(GameOver);
+    }
+
+    void GameOver()
+    {
+        gameOver = true;
     }
 
     public void Reload()
     {
+        if (gameOver)
+            return;
+
         if(currentAmmo > 0)
         {
             InstantiatePrefab(magazinePrefab, magazineBasePivot.transform.position,
@@ -82,6 +92,9 @@ public class ShootingWeapon : MonoBehaviour {
 
     public virtual void Fire()
     {
+        if (gameOver)
+            return;
+
         if (currentAmmo <= 0)
         {
             return;

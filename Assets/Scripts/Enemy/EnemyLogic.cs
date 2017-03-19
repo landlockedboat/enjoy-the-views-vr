@@ -30,6 +30,11 @@ public class EnemyLogic : MonoBehaviour {
         animator.Stop();
     }
 
+    void Die()
+    {
+        GameMaster.Instance.UnRegisterOnGameOverCallback(GameOver);
+    }
+
     private void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.tag == tagToFollow)

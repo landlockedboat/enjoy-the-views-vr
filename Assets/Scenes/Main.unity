@@ -24588,7 +24588,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -29762,6 +29762,11 @@ Prefab:
     - target: {fileID: 4000162126003296, guid: c39fc12e09511b2429c65841dcf20084, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82241514441012594, guid: c39fc12e09511b2429c65841dcf20084,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c39fc12e09511b2429c65841dcf20084, type: 2}
@@ -39163,7 +39168,7 @@ MonoBehaviour:
   spawners: []
   initalTimeToSpawn: 3
   spawnTimeToDecrease: 0.01
-  initalSpeed: 0.75
+  initalSpeed: 5
   speedToIncrease: 0.05
   maxSpeed: 5
   minTimeToSpawn: 0.2

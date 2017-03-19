@@ -7,6 +7,7 @@ public class ShowGameOver : MonoBehaviour {
 
     [SerializeField]
     GameObject gameOverText;
+    bool gameOver = false;
 	
 	void Start () {
         GameMaster.Instance.RegisterOnGameOverCallback(GameOver);
@@ -16,10 +17,15 @@ public class ShowGameOver : MonoBehaviour {
     void GameOver()
     {
         gameOverText.SetActive(true);
+        gameOver = true;
     }
 
     void ReloadScene()
     {
+        if (!gameOver)
+        {
+            return;
+        }
         SceneManager.LoadScene(0);
     }
 	

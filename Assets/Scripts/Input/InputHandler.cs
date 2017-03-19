@@ -21,6 +21,19 @@ public class InputHandler : Singleton<InputHandler> {
     Action onMagazineCallback;
     Action onMagazineReleasedCallback;
 
+    Action onReloadSceneCallback;
+
+    //onReloadScene
+    public void RegisterOnReloadSceneCallback(Action onReloadSceneCallback)
+    {
+        this.onReloadSceneCallback += onReloadSceneCallback;
+    }
+
+    public void OnReloadScene()
+    {
+        TriggerCallback(onReloadSceneCallback);
+    }
+
     //onMagazineCallback
     public void RegisterOnMagazineCallback(Action onMagazineCallback)
     {

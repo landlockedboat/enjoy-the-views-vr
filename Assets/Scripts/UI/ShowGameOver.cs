@@ -11,7 +11,7 @@ public class ShowGameOver : MonoBehaviour {
 	
 	void Start () {
         GameMaster.Instance.RegisterOnGameOverCallback(GameOver);
-        InputHandler.Instance.RegisterOnFireCallback(ReloadScene);
+        InputHandler.Instance.RegisterOnReloadSceneCallback(ReloadScene);
 	}
 
     void GameOver()

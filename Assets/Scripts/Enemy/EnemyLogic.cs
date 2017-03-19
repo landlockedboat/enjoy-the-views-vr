@@ -35,7 +35,6 @@ public class EnemyLogic : MonoBehaviour {
         if(col.gameObject.tag == tagToFollow)
         {
             GameMaster.Instance.GameOver();
-            // gameObject.SendMessage("ApplyDamage", 1000);
         }
     }
 }

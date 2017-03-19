@@ -37,5 +37,10 @@ public class OVRTouchInput : MonoBehaviour {
             inputHandlerInstance.OnMagazineReleased();
         }
 
+        if (OVRInput.Get(OVRInput.Button.Three))
+        {
+            inputHandlerInstance.OnReloadScene();
+        }
+
     }
 }

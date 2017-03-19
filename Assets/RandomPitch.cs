@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class RandomPitch : MonoBehaviour {
     [SerializeField]
-    float minPitch = .1f;
+    float minPitch = 1f;
     [SerializeField]
-    float maxPitch = 1.5f;
+    float maxPitch = 1.3f;
 
     void Awake()
     {

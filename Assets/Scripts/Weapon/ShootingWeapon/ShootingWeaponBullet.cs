@@ -7,8 +7,11 @@ public class ShootingWeaponBullet : MonoBehaviour {
     float damage = 5f;
     [SerializeField]
     float initalForce = 75;
+    [SerializeField]
+    GameObject bulletGeom;
 
     Rigidbody myRigidbody;
+    bool hasCollided = false;
 
     void Start()
     {
@@ -19,6 +22,10 @@ public class ShootingWeaponBullet : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
+        if (hasCollided)
+        {
+            return;
+        }
         if(collision == null)
         {
             Debug.LogError("OnCollisionEnter: null collision");
@@ -32,8 +39,8 @@ public class ShootingWeaponBullet : MonoBehaviour {
                 SendMessageOptions.DontRequireReceiver);
             collisionObject.SendMessage("ApplyKnockback", myRigidbody.velocity.normalized,
                 SendMessageOptions.DontRequireReceiver);
-            Destroy(gameObject);
+            hasCollided = true;
+            Destroy(bulletGeom);
         }
-
     }
 }

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114584345197589462}
   - component: {fileID: 114019718849322238}
   - component: {fileID: 82219252554781294}
+  - component: {fileID: 114437716165239952}
   m_Layer: 0
   m_Name: HandgunBullet
   m_TagString: Untagged
@@ -219,7 +220,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17957cc51bbda964c947481b303790c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTillSelfDestruction: 1
+  timeTillSelfDestruction: 2
+--- !u!114 &114437716165239952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1778544944668112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e4eb78568e51345afe3c5485d137c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minPitch: 1
+  maxPitch: 1.3
 --- !u!114 &114584345197589462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -233,6 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   initalForce: 10
+  bulletGeom: {fileID: 1906559505299150}
 --- !u!136 &136399519873910474
 CapsuleCollider:
   m_ObjectHideFlags: 1

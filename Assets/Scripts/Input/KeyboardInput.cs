@@ -12,6 +12,8 @@ public class KeyboardInput : MonoBehaviour
     string nextWeaponKey = "q";
     [SerializeField]
     string previousWeaponKey = "e";
+    [SerializeField]
+    string magazineKey = "m";
 
     InputHandler inputHandlerInstance;
 
@@ -37,6 +39,14 @@ public class KeyboardInput : MonoBehaviour
         if (Input.GetKeyDown(previousWeaponKey))
         {
             inputHandlerInstance.OnPreviousWeaponPressed();
+        }
+        if (Input.GetKeyDown(magazineKey))
+        {
+            inputHandlerInstance.OnMagazinePressed();
+        }
+        if (Input.GetKeyUp(magazineKey))
+        {
+            inputHandlerInstance.OnMagazineReleased();
         }
     }
 }

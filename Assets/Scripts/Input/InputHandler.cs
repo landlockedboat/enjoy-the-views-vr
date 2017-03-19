@@ -18,6 +18,33 @@ public class InputHandler : Singleton<InputHandler> {
 
     Action onPreviousWeaponCallback;
 
+    Action onMagazineCallback;
+    Action onMagazineReleasedCallback;
+
+    //onMagazineCallback
+    public void RegisterOnMagazineCallback(Action onMagazineCallback)
+    {
+        this.onMagazineCallback += onMagazineCallback;
+    }
+
+    public void OnMagazinePressed()
+    {
+        TriggerCallback(onMagazineCallback);
+    }
+
+    //onMagazineReleasedCallback
+    public void RegisterOnMagazineReleasedCallback(Action onMagazineReleasedCallback)
+    {
+        this.onMagazineReleasedCallback += onMagazineReleasedCallback;
+    }
+
+    public void OnMagazineReleased()
+    {
+        TriggerCallback(onMagazineReleasedCallback);
+    }
+
+
+
     //onNextWeaponCallback
     public void RegisterOnNextWeaponCallback(Action onNextWeaponCallback)
     {

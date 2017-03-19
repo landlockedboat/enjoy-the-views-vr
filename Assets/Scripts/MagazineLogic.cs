@@ -9,6 +9,7 @@ public class MagazineLogic : MonoBehaviour {
         if(other.tag == "Magazine")
         {
             InputHandler.Instance.OnReloadPressed();
+            other.transform.parent.GetComponent<AudioSource>().Play();
         }
     }
 

@@ -7,11 +7,17 @@ public class EnemyHealth : MonoBehaviour {
     [SerializeField]
     float maxHealth = 10f;
 
+    [SerializeField]
+    GameObject corpsePrefab;
+
     public void ApplyDamage(float ammount)
     {
         maxHealth -= ammount;
         if(maxHealth <= 0)
         {
+            EnemiesKilledUI.Instance.EnemyKilled();
+            GameObject corpse =
+                Instantiate(corpsePrefab, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

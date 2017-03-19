@@ -21,7 +21,7 @@ public class SpawnEnemies : MonoBehaviour {
     [SerializeField]
     GameObject enemyPrefab;
 
-
+    bool isGameOver = false;
     float currentTimeToSpawn;
 
 	void Start () {
@@ -30,11 +30,20 @@ public class SpawnEnemies : MonoBehaviour {
 
         currentTimeToSpawn = initalTimeToSpawn;
         Invoke("SpawnEnemy", currentTimeToSpawn);
+        GameMaster.Instance.RegisterOnGameOverCallback(GameOver);
 	}
+
+    void GameOver()
+    {
+        isGameOver = true;
+    }
 
     void SpawnEnemy()
     {
-
+        if (isGameOver)
+        {
+            return;
+        }
         int randomSpawner = Random.Range(0, spawners.Length);
         Instantiate(enemyPrefab, spawners[randomSpawner].transform.position,
             spawners[randomSpawner].transform.rotation);
